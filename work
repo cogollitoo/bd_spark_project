@@ -23,3 +23,26 @@ he estado mirando un poco como hacer ver la mutual information y no he encontrad
 habia pensado en hacer PCA y ver que variables influyen mas, pero ahora no se bien si habria que incluir la target variable o no ( creo q si )
 
 DISCULPAD LA CHAPADA jajaja
+-------------------------------------------------------------
+Hemos hecho también un análisis de las variables. La hemos resumido en el archivo excel que hemos subido.
+
+Hemos sacado una gráfica comparando el delay por vuelo de cada aerolínea(UniqueCarrier). Hemos sumado todos los valores positivos de delay y 
+dividido entre el número de vuelos totales con delay, todo ello 'filtrando' por aerolinea. Hemos visto que hay diferencias entre las aerolíneas, 
+por lo que pensamos que está bien mantener esas columnas.
+
+En lugar de quitar las columnas de 'Cancelled' y 'CancellationCode', eliminaríamos sólo las filas con vuelos cancelados, y luego ya eliminaríamos ambas columnas.
+
+Lo de onehotencoding lo vemos bien sí.
+
+En cuando a lo de calcular la velocidad, realmente no lo vemos 100% necesario porque no sabemos si tendría que ver con el delay.
+
+Sobre la target column, podemos probar a aplicar algoritmos sin necesidad de categorizar esa columna (como el Artificial neural network o 
+el regression... no recordamos exactamente cual era al que nos referimos jajaja).
+
+Nosotros la columna de Flightnum no la quitaríamos, sino que quitaríamos las de Origin y Dest, porque el flightnum ya está asociado a un recorrido (tipo, Madrid-Lisboa
+tendría un flight number fijo en todas las instancias con origin madrid y dest lisboa). Y vemos quizás mejor dejar el flightnum en ligar de dos columnas.
+
+Lo de categorizar en dos clases (mañana y tarde) por un lado es raro y por otro  tiene sentido, podríamos probar de las dos formas??
+
+No hemos modificado el código, porque ya cuando decidamos 100% lo de las columnas, etc, pues con lo que estés de acuerdo lo cambiamos pero por no entrar en bucle de cambios!
+Dinos qué opinas!!
