@@ -1,0 +1,25 @@
+he hecho un poco de limpieza de variables, aparte de las que no se podian usar he quitado algunas que creo que no daban mucha info.
+
+tambien he pasado algunas a integer ya que spark no las reconocia y he vaciado todas las rows que tuviesen nulls o na,
+aunq quiza en las varialbes que son string no haya salido bien, ya que puede reconocerme un NA como una codigo de aeropuerto ...
+
+he combinado la columna Distance con CRSElapsedTime(duracion planeada de vuelo), y he añadido esto como nueva variable algo
+asi como Velocidad planeada de vuelo ( CRSPlanned Speed ).
+lo que ahora no se es si deberiamos quitar Distance, CRSElapsedTime, ambas o dejarlas todas. Puede que tambien dependa del modelo.
+
+tambien he pasado varias variables que me parecian categoricas a onehotencoding, que se necesita para la mayoria de algoritmos.
+
+tambien habia pensado que quiza deberiamos categorizar la target ( ArrDelay ) en por ej retraso bajo, medio , alto y muy alto.
+para aplicar trees y tal puede ayudar.
+aunque tambien se puede usar asi para un modelo y de otra manera para otro.
+
+y por ultimo pues me dio por ver si la hora del dia influia en el retraso, he aplicado kmeans a DepTime y a CRSArrTime.
+Y no se si es muy concluyente pero el Silhouette coef da que la mejor division es con 2 clusters y si mirais los centroides
+parece que cuanto mas pronto es el vuelo menos es el retraso y cuanto mas tarde es el vuelo mas largo es el retraso,
+esto para mi tiene sentido ya que  por la mañana las compañias suelen empezar de 0 y luego van acumulando retrasos hasta la noche.
+entonces si lo veis bien podemos categorizar esas 2 variables en 2 clases ( mañana y tarde por ej) o quedarnos solo con una
+
+he estado mirando un poco como hacer ver la mutual information y no he encontrado mucho.
+habia pensado en hacer PCA y ver que variables influyen mas, pero ahora no se bien si habria que incluir la target variable o no ( creo q si )
+
+DISCULPAD LA CHAPADA jajaja
