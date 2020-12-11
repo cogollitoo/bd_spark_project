@@ -3,7 +3,9 @@ from pyspark.sql.functions import *
 from pyspark.sql import functions as F
 from pyspark.ml.feature import StringIndexer, OneHotEncoder
 from pyspark.ml.feature import VectorAssembler
-from tools import kmeans_info
+from tools import kmeans_info, correlation_matrix
+from pyspark.ml.stat import Correlation
+import pandas as pd
 
 spark = SparkSession.builder.appName("bd_spark.com").master('local[4]').getOrCreate()
 
@@ -47,17 +49,22 @@ df.show()
 
 file = open('bd_project/analysis.txt', 'w')
 
-vecAssembler = VectorAssembler(inputCols=['DepTime','ArrDelay'], outputCol='features')
-new_df = vecAssembler.transform(df)
-new_df.show()
 
 # Trains a k-means model.
+inputCols = ['DepTime','ArrDelay']
+file.write('Clustering'+str(inputCols)+'\n')
 for i in range(2,6):
-    kmeans_info(i,new_df,file)
+    info = kmeans_info(i,df,inputCols)
+    file.write(info)
 
-vecAssembler = VectorAssembler(inputCols=['CRSArrTime','ArrDelay'], outputCol='features')
-new_df = vecAssembler.transform(df)
-new_df.show()
-# Trains a k-means model.
+inputCols=['CRSArrTime','ArrDelay']
+file.write('Clustering'+str(inputCols)+'\n')
 for i in range(2,6):
-    kmeans_info(i,new_df,file)
+    info = kmeans_info(i,df,inputCols)
+    file.write(info)
+
+
+file.write('Correlation Matrix\n')
+int_cols = ['Month','DayofMonth','DayOfWeek','DepTime','CRSArrTime','DepDelay','CRSPlanSpeed','ArrDelay']
+info = correlation_matrix(df,int_cols)
+file.write(info)

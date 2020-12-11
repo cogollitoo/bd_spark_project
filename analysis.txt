@@ -1,3 +1,4 @@
+Clustering['DepTime', 'ArrDelay']
 ---> With 2 clusters 
 Silhouette with squared euclidean distance = 0.7815708844786119
 Cluster Centers: 
@@ -28,6 +29,7 @@ Cluster Centers:
 [1025.32889036    7.76212906]
 [1714.90352673   10.77248175]
 --------------------
+Clustering['CRSArrTime', 'ArrDelay']
 ---> With 2 clusters 
 Silhouette with squared euclidean distance = 0.7730194207072912
 Cluster Centers: 
@@ -58,3 +60,13 @@ Cluster Centers:
 [2089.19901167   12.62564695]
 [90.43012302 10.6339355 ]
 --------------------
+Correlation Matrix
+                 Month  DayofMonth  DayOfWeek   DepTime  CRSArrTime  DepDelay  CRSPlanSpeed  ArrDelay
+Month         1.000000   -0.007578  -0.036136  0.006820    0.000570  0.120394     -0.014101  0.126924
+DayofMonth   -0.007578    1.000000  -0.001123  0.000063   -0.002972  0.076766     -0.002208  0.069316
+DayOfWeek    -0.036136   -0.001123   1.000000  0.003809    0.006664 -0.018771      0.007668 -0.038999
+DepTime       0.006820    0.000063   0.003809  1.000000    0.819308  0.134091     -0.061739  0.116859
+CRSArrTime    0.000570   -0.002972   0.006664  0.819308    1.000000  0.102195      0.040337  0.086665
+DepDelay      0.120394    0.076766  -0.018771  0.134091    0.102195  1.000000      0.045646  0.796297
+CRSPlanSpeed -0.014101   -0.002208   0.007668 -0.061739    0.040337  0.045646      1.000000  0.056047
+ArrDelay      0.126924    0.069316  -0.038999  0.116859    0.086665  0.796297      0.056047  1.000000
