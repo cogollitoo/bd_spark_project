@@ -1,0 +1,60 @@
+---> With 2 clusters 
+Silhouette with squared euclidean distance = 0.7815708844786119
+Cluster Centers: 
+[970.33181953   6.98763914]
+[1789.11171542   12.03030622]
+--------------------
+---> With 3 clusters 
+Silhouette with squared euclidean distance = 0.7348210074653004
+Cluster Centers: 
+[1358.92507292    8.95170102]
+[1918.86954113   13.15351485]
+[813.18704203   6.15159134]
+--------------------
+---> With 4 clusters 
+Silhouette with squared euclidean distance = 0.6783359381065409
+Cluster Centers: 
+[718.84513778   5.09736962]
+[1996.99405932   14.14279583]
+[1545.94502384    9.78083083]
+[1101.40087923    8.140874  ]
+--------------------
+---> With 5 clusters 
+Silhouette with squared euclidean distance = 0.6688585302511153
+Cluster Centers: 
+[2058.29253447   15.22251719]
+[712.38200547   5.07731367]
+[1358.24893315    8.87752125]
+[1025.32889036    7.76212906]
+[1714.90352673   10.77248175]
+--------------------
+---> With 2 clusters 
+Silhouette with squared euclidean distance = 0.7730194207072912
+Cluster Centers: 
+[1886.03145896   11.39778079]
+[1063.15393894    7.32623398]
+--------------------
+---> With 3 clusters 
+Silhouette with squared euclidean distance = 0.7177948410318092
+Cluster Centers: 
+[2044.10031076   12.46510925]
+[902.62123338   6.65135334]
+[1486.20281611    9.08486125]
+--------------------
+---> With 4 clusters 
+Silhouette with squared euclidean distance = 0.7405574002077072
+Cluster Centers: 
+[2044.10031076   12.46510925]
+[251.55405899   8.80051832]
+[1536.93042384    9.29427307]
+[1003.36861182    6.76871747]
+--------------------
+---> With 5 clusters 
+Silhouette with squared euclidean distance = 0.7318496197290772
+Cluster Centers: 
+[1674.00956339   10.11640241]
+[885.64516901   5.89233787]
+[1273.51844691    8.39518907]
+[2089.19901167   12.62564695]
+[90.43012302 10.6339355 ]
+--------------------
