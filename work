@@ -47,3 +47,33 @@ Lo de categorizar en dos clases (mañana y tarde) por un lado es raro y por otro
 No hemos modificado el código, porque ya cuando decidamos 100% lo de las columnas, etc, pues con lo que estés de acuerdo lo cambiamos pero por no entrar en bucle de cambios!
 Dinos qué opinas!!
 
+----------------------------------------------------------------
+
+En cuanto al tratamiento de las variables, hemos:
+	-Dejado de ejecutar el calculo de la velocidad porque comparando resultados es mejor dejar las otras dos columnas 'distance' y 'CRSElapsedTime'.
+	-Convertido a enteros 'distance' y 'CRSElapsedTime'.
+	-Cambiado un poco la funcion de quitar NA, para no eliminar posibles orígenes y destinos con NA en el nombre ('SNA' y 'BNA').
+	-Eliminado las columnas de 'DayofMonth', 'Month'. Intentamos de varias maneras cambiar el formato a fecha, sin buenos resultados, y no tiene mucho sentido dejar una 
+  columna que asemeje, por ejemplo, un sábado dia 1 que correspondiese a enero, a un día 1 miércoles que correspondiese a marzo.
+ 	-Convertido 'DayOfWeek' en un one hot encoding, 'DayOfWeekOHE'.
+	-En cuanto a las variables 'DepTime' y 'CRSArrTime' hiciste dos transformaciones, una en OHE y otra cambiando el integer. Tras probar con los algoritmos hemos elegido
+  que las mejores eran las que están en formato integer, y hemos eliminado las otras columnas.
+
+Después preparamos los datos para meterlos en los algoritmos de ML con el vector assembler.
+
+Luego hemos probado a hacer Principal Components y escalar los datos (MinMaxScaler), pero no ha dado buenos resultados porque a la hora de aplicar los algoritmos no 
+salen bien, dan un RMSE susperior al que sale sin hacer ningun cambio.
+
+
+Después aplicamos los algoritnmos, hemos implementado tres tipos:
+	-Linear Regression. (En este también utilizamos Cross Validation, para configurar los parametros del metodo).
+	-GeneralizedLinear Regression (con family=Gaussian y link=identity).(En este también utilizamos Cross Validation, para configurar los parametros del metodo).
+	-Decision Tree Regression.
+
+Para continuar, creo que uno de los problemas que tenemos es que en nuestro modelo final, al hacer el Vector assembler nos quedan como 500 variables, esto hace que 
+los metodos funcionen muy lentos y los resultados no sean buenos. El hecho de que haya tantas variables se debe al OHE de origin y destino que hace añadir 
+236 variables cada una. 
+Quizás habría que pensar en otra forma de tratar esas features, o utilizar un filtro de variables y quedarnos solo con algunas. 
+
+Al final he probado con un selector de atributos que viene en la documnetacion se llama ChiSqselector, escogiendo los 25 atributos mas importantes, y el resultado 
+de los algoritmos no es malo.
